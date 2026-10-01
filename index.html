@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>AndesRobot Team - RoboCup 2027</title>
+    <link rel="icon" type="image/png" href="assets/img/brand/favicon.png" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+</head>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let slideIndex = 0;
+    const slider = document.querySelector('.slider-wrapper');
+    const totalSlides = document.querySelectorAll('.slider-wrapper img').length;
+
+    function rotarSlides() {
+      slideIndex = (slideIndex + 1) % totalSlides;
+      slider.style.transform = `translateX(-${slideIndex * 100}%)`;
+    }
+
+    setInterval(rotarSlides, 4000);
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) slide.classList.add('active');
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    showSlide(currentSlide);
+    setInterval(nextSlide, 5000);
+  });
+</script>
+
+<body>
+  <header>
+    <div class="header-brand">
+      <img src="assets/img/brand/andesrobot-logo.png" alt="AndesRobot logo" />
+      <h1>AndesRobot Team <span>RoboCup 2027</span></h1>
+    </div>
+    <nav>
+      <a href="#resultados">RoboCup 2025</a>
+      <a href="#research">Research</a>
+      <a href="#miembros">Team Members</a>
+      <a href="#fotos">Photos</a>
+      <a href="#videos">Videos</a>
+      <a href="repos.html">Repositories and Publications</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+  </header>
+
+  <section class="hero-slider">
+    <div class="slide" style="background-image: url('assets/img/gallery/hero.jpg');">
+      <div class="hero-content">
+        <h1>AndesRobot Team</h1>
+        <p>Two universities, two countries, one team. Now preparing for RoboCup 2027.</p>
+      </div>
+    </div>
+    <div class="slide" style="background-image: url('assets/img/gallery/g08.jpg');">
+      <div class="hero-content">
+        <h1>11th Place at RoboCup 2025</h1>
+        <p>Our first official participation, in Salvador, Brazil.</p>
+      </div>
+    </div>
+    <div class="slide" style="background-image: url('assets/img/gallery/g18.jpg');">
+      <div class="hero-content">
+        <h1>Applied Research in Service Robotics</h1>
+        <p>Perception, manipulation, navigation and human-robot interaction for domestic environments.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="resultados" data-aos="fade-up">
+    <h2>RoboCup 2025 Result</h2>
+    <div class="result-card">
+      <img src="assets/img/gallery/g13.jpg" alt="AndesRobot Team at RoboCup 2025 in Salvador, Brazil" />
+      <div class="result-text">
+        <div class="result-place">11<sup>th</sup></div>
+        <h3>RoboCup 2025 - Salvador, Brazil</h3>
+        <p>In our first official RoboCup participation, AndesRobot Team finished in 11th place. The experience in Salvador gave us a clear picture of where our robot stands and which capabilities we need to strengthen.</p>
+        <p>For RoboCup 2027 we are reorganizing the team around defined research lines, with measurable goals for each competition task.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="research" data-aos="fade-up">
+    <h2>Research Lines</h2>
+    <p class="intro">Our work toward RoboCup 2027 is organized in six research lines. Each one addresses open problems in service robotics and is linked to specific tasks of the RoboCup@Home rulebook.</p>
+
+    <div class="research-grid">
+      <div class="research-card">
+        <h3>Semantic Mapping and Navigation</h3>
+        <p>Maps that store both the geometry of a house and its meaning: rooms, furniture and objects. We also study navigation that respects people's personal space, using ROS 2 and Nav2.</p>
+        <p class="tasks"><b>Related tasks:</b> Carry My Luggage, GPSR</p>
+      </div>
+
+      <div class="research-card">
+        <h3>Open-Vocabulary Object Perception</h3>
+        <p>Recognition and segmentation of objects that were not in the training set, using vision-language models and RGB-D data, with the constraint of running on the robot's onboard GPU in real time.</p>
+        <p class="tasks"><b>Related tasks:</b> Storing Groceries, Serve Breakfast</p>
+      </div>
+
+      <div class="research-card">
+        <h3>Mobile Manipulation</h3>
+        <p>Grasp planning for household objects with different shapes and materials, and coordination between the mobile base and the arm for pick-and-place in cluttered scenes.</p>
+        <p class="tasks"><b>Related tasks:</b> Clean the Table, Storing Groceries</p>
+      </div>
+
+      <div class="research-card">
+        <h3>Human-Robot Interaction and Dialogue</h3>
+        <p>Speech recognition in noisy environments and dialogue with language models. This line builds on our previous work on adapting the robot's language to the user's personality.</p>
+        <p class="tasks"><b>Related tasks:</b> Receptionist, GPSR</p>
+      </div>
+
+      <div class="research-card">
+        <h3>Task Planning from Natural Language</h3>
+        <p>Converting spoken commands into executable plans, combining language models with behavior trees and checking each step against what the robot can actually do.</p>
+        <p class="tasks"><b>Related tasks:</b> GPSR, Serve Breakfast</p>
+      </div>
+
+      <div class="research-card">
+        <h3>Person Detection and Tracking</h3>
+        <p>Detecting, identifying and following people even after occlusions, and recognizing gestures and poses to support natural interaction.</p>
+        <p class="tasks"><b>Related tasks:</b> Carry My Luggage, Receptionist</p>
+      </div>
+    </div>
+
+    <div class="workflow">
+      <h3>How we work</h3>
+      <ol>
+        <li><b>1. Simulation</b>Each module is developed and tested first in Gazebo.</li>
+        <li><b>2. Evaluation</b>We measure performance using the RoboCup@Home scoring criteria.</li>
+        <li><b>3. Integration</b>Validated modules are integrated on the real robot with ROS 2.</li>
+        <li><b>4. Publication</b>Results are documented and the code is shared openly.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="miembros" data-aos="fade-up">
+    <h2>Team Members</h2>
+
+    <!-- ---------- TEAM LEADER ---------- -->
+    <h3 class="subteam">Team Leader</h3>
+    <div class="leader-card">
+      <img src="assets/img/members/aleja.jpg" alt="Alejandra Pinzón" />
+      <div class="leader-info">
+        <span class="leader-role">TEAM LEADER</span>
+        <h3>Alejandra Pinzón Farfán</h3>
+        <p>PhD student in Advanced Systems Engineering</p>
+      </div>
+    </div>
+
+    <h3 class="subteam">Professors</h3>
+    <div class="grid-miembros">
+
+      <div class="card">
+        <img src="assets/img/members/miguel.jpg" alt="Miguel Solis" />
+        <h3>Miguel A. Solis</h3>
+        <p>Professor &amp; Researcher</p>
+        <span class="uni uni-unab">UNAB</span>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/members/mateus.jpg" alt="Armando Mateus" />
+        <h3>Armando Mateus Rojas</h3>
+        <p>Professor &amp; Researcher</p>
+        <span class="uni uni-usta">USTA</span>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/members/larenas.jpg" alt="Roberto Larenas" />
+        <h3>Roberto Larenas Ulloa</h3>
+        <p>Professor &amp; Researcher</p>
+        <span class="uni uni-unab">UNAB</span>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/members/nestor.jpeg" alt="Nestor Ospina Gaitan" />
+        <h3>Nestor Ospina Gaitan</h3>
+        <p>Professor &amp; Researcher</p>
+        <span class="uni uni-usta">USTA</span>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/members/liliana.jpg" alt="Liliana Guerrero" />
+        <h3>Liliana Guerrero Ibarra</h3>
+        <p>Professor &amp; Researcher</p>
+        <span class="uni uni-unab">UNAB</span>
+      </div>
+      
+      <div class="card">
+        <img src="assets/img/members/jhon.jpeg" alt="John Monsaide" />
+        <h3>John Monsaide</h3>
+        <p>Professor &amp; Researcher</p>
+        <span class="uni uni-usta">USTA</span>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/members/pablo.jpeg" alt="Pablo Schwarzenberg" />
+        <h3>Pablo Schwarzenberg</h3>
+        <p>Professor &amp; Researcher</p>
+        <span class="uni uni-unab">UNAB</span>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/members/vladimir.jpeg" alt="Vladimir Toro" />
+        <h3>B. Wladimir Toro Tovar</h3>
+        <p>Professor &amp; Researcher</p>
+        <span class="uni uni-usta">USTA</span>
+      </div>
+
+      
+
+    </div>
+
+    <h3 class="subteam">Students</h3>
+    <div class="grid-miembros">
+       <div class="card">
+        <img src="assets/img/members/diego.jpg" alt="Diego Lopez" />
+        <h3>Diego Lopez Vera</h3>
+        <p>Automation &amp; Robotics Engineering</p>
+        <span class="uni uni-unab">UNAB</span>
+      </div>
+      
+      <div class="card">
+        <img src="assets/img/members/piero.jpeg" alt="Piero Vilcapoma" />
+        <h3>Piero Vilcapoma</h3>
+        <p>PhD student in Advanced Systems Engineering</p>
+        <span class="uni uni-unab">UNAB</span>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/members/ivan.jpeg" alt="Ivan H. Garcia" />
+        <h3>Ivan H. Garcia</h3>
+        <p>PhD student in Advanced Systems Engineering</p>
+        <span class="uni uni-unab">UNAB</span>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/members/dominic.jpeg" alt="Dominic maldonado" />
+        <h3>Dominic Maldonado</h3>
+        <p>Automation &amp; Robotics Engineering</p>
+        <span class="uni uni-unab">UNAB</span>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/members/benjamin.jpeg" alt="Benjamin Martinez" />
+        <h3>Benjamin Martinez</h3>
+        <p>Automation &amp; Robotics Engineering</p>
+        <span class="uni uni-unab">UNAB</span>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/members/adrian.jpg" alt="Adrian Arevalo" />
+        <h3>Adrian E. Arévalo Passarotto</h3>
+        <p>Automation &amp; Robotics Engineering</p>
+        <span class="uni uni-unab">UNAB</span>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/members/felipe.jpeg" alt="Felipe Castro" />
+        <h3>Felipe Castro</h3>
+        <p>Automation &amp; Robotics Engineering</p>
+        <span class="uni uni-unab">UNAB</span>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/members/nico.jpg" alt="Nicolas Martinez" />
+        <h3>Nicolas G. Martinez Contreras</h3>
+        <p>Automation &amp; Robotics Engineering</p>
+        <span class="uni uni-unab">UNAB</span>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/members/kathy.jpg" alt="Katherine Rojas" />
+        <h3>Katherine J. Rojas Romero</h3>
+        <p>Industrial Engineering</p>
+        <span class="uni uni-unab">UNAB</span>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/members/aaron.jpeg" alt="Aarón Valdivia López" />
+        <h3>Aarón Valdivia López</h3>
+        <p>Industrial Engineering</p>
+        <span class="uni uni-unab">UNAB</span>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/members/javi.jpg" alt="Javiera Vega" />
+        <h3>Javiera Vega Lagos</h3>
+        <p>Construction Engineering</p>
+        <span class="uni uni-unab">UNAB</span>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/members/topo.jpg" alt="Juan Avendaño" />
+        <h3>Juan D. Avendaño Garzón</h3>
+        <p>Electronic Engineering, member of GED</p>
+        <span class="uni uni-usta">USTA</span>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/members/sara.jpeg" alt="Alejandra Penagos Ciendua " />
+        <h3>Alejandra Penagos Ciendua</h3>
+        <p>Electronic Engineering</p>
+        <span class="uni uni-usta">USTA</span>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/members/sara.jpeg" alt="Nicolás D. Alfonso Rodríguez" />
+        <h3>Nicolás D. Alfonso Rodríguez</h3>
+        <p>Electronic Engineering</p>
+        <span class="uni uni-usta">USTA</span>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/members/sara.jpeg" alt="Julian D. Montealegre " />
+        <h3>Julian D. Montealegre</h3>
+        <p>Electronic Engineering</p>
+        <span class="uni uni-usta">USTA</span>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/members/valentina.jpg" alt="Valentina Perez" />
+        <h3>Valentina Perez Fernandez</h3>
+        <p>Electronic Engineering</p>
+        <span class="uni uni-usta">USTA</span>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/members/juand.jpg" alt="Juan Baez" />
+        <h3>Juan D. Báez Guerrero</h3>
+        <p>Electronic Engineering</p>
+        <span class="uni uni-usta">USTA</span>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/members/sebas.jpeg" alt="Sebastian Solozarno" />
+        <h3>Sebastian Solozarno</h3>
+        <p>Electronic Engineering</p>
+        <span class="uni uni-usta">USTA</span>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/members/kevin.jpeg" alt="Kevin Hernandez " />
+        <h3>Kevin Hernandez</h3>
+        <p>Electronic Engineering</p>
+        <span class="uni uni-usta">USTA</span>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/members/juliana.jpeg" alt="Juliana Beltran" />
+        <h3>Juliana Beltran</h3>
+        <p>Electronic Engineering</p>
+        <span class="uni uni-usta">USTA</span>
+      </div>
+
+
+      <div class="card">
+        <img src="assets/img/members/melanie.jpeg" alt="Melanie Aponte" />
+        <h3>Melanie Aponte</h3>
+        <p>Electronic Engineering</p>
+        <span class="uni uni-usta">USTA</span>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/members/sara.jpeg" alt="Sarah Velasquez" />
+        <h3>Sarah Velasquez</h3>
+        <p>Electronic Engineering</p>
+        <span class="uni uni-usta">USTA</span>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/members/sara.jpeg" alt="Brayan C. Bohorquez Niño" />
+        <h3>Brayan C. Bohorquez Niño</h3>
+        <p>Electronic Engineering</p>
+        <span class="uni uni-usta">USTA</span>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/members/jesus.jpeg" alt="Manuel S. Ibáñez Gutiérrez" />
+        <h3>Manuel S. Ibáñez Gutiérrez</h3>
+        <p>Electronic Engineering</p>
+        <span class="uni uni-usta">USTA</span>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/members/diego_m.jpeg" alt="Juan D. Clavijo" />
+        <h3>Juan D. Clavijo</h3>
+        <p>Electronic Engineering</p>
+        <span class="uni uni-usta">USTA</span>
+      </div>
+
+
+    </div>
+  </section>
+
+  <section id="fotos" data-aos="fade-up">
+    <h2>Photo Gallery</h2>
+    <div class="slider-container">
+      <div class="slider-wrapper" id="slider">
+        <img src="assets/img/gallery/g08.jpg" alt="Team at RoboCup 2025">
+        <img src="assets/img/gallery/g10.jpg" alt="Working on the robot">
+        <img src="assets/img/gallery/g15.jpg" alt="Team with flags">
+        <img src="assets/img/gallery/g09.jpg" alt="Robot testing">
+        <img src="assets/img/gallery/g14.jpg" alt="Night test">
+      </div>
+    </div>
+    <div class="ver-mas-wrapper">
+      <a href="fotos.html" class="btn-ver-mas">See more</a>
+    </div>
+  </section>
+
+  <section class="repos-card" data-aos="fade-up">
+    <h2>Repositories and Publications</h2>
+    <p>Check out our open-source projects and scientific publications.</p>
+    <div class="repo-button-wrapper">
+      <a href="repos.html" class="btn-primary">View All</a>
+    </div>
+  </section>
+
+  <section id="robocup" data-aos="fade-up">
+    <h2>RoboCup Participation</h2>
+    <p>Our team combines the experience of members who have participated in previous editions of RoboCup:</p>
+    <ul>
+      <li><strong>2014 - RoboCup Small Size League:</strong> Participation by <em>Miguel A. Solis Cid</em>.</li>
+      <li><strong>2019 - RoboCup Standard Platform League:</strong> Participation by <em>Armando Mateus Rojas</em>.</li>
+      <li><strong>2025 - RoboCup, Salvador (Brazil):</strong> First official participation of <em>AndesRobot Team</em>, <strong>11th place</strong>.</li>
+      <li><strong>2027 - RoboCup:</strong> Next participation, with a research-driven approach.</li>
+    </ul>
+  </section>
+
+  <section id="instituciones" data-aos="fade-up">
+      <h2>Partner Universities</h2>
+      <div class="logos-instituciones">
+      <div class="institucion">
+          <img src="assets/img/brand/unab.png" alt="UNAB Chile" />
+          <p><strong>Andrés Bello University (Chile)</strong><br />Antonio Varas Campus, Santiago</p>
+      </div>
+      <div class="institucion">
+          <img src="assets/img/brand/usta.png" alt="USTA Colombia" />
+          <p><strong>Santo Tomas University (Colombia)</strong><br />Main Campus, Bogotá D.C.</p>
+      </div>
+      </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 AndesRobot Team</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+</body>
+</html>
